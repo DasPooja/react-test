@@ -33,5 +33,8 @@ cd react-test
 3. Install the dependencies:
 npm install
 
-4.Start the development server:
+4. Start the development server:
 npm start
+
+## Usage
+Open http://localhost:3000 in your browser.
