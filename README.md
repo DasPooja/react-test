@@ -21,19 +21,7 @@ Main Content area with two Tabs to display data.
 Users can switch between dark and light themes.
 
 ## 4. Logout Functionality:
-A Logout Button is available in the sidebar to log out and clear the token from localStorage.
-
-## Project Structure
-
-src/
-  ├── components/
-  │     ├── Login.jsx          # Login component
-  │     ├── Home.jsx           # Home component
-  │     └── AppLayout.jsx      # Contain all home content
-  │    
-  │         
-  ├── App.js                  # Main entry point
-  └── index.js                
+A Logout Button is available in the sidebar to log out and clear the token from localStorage.                
 
 ## Installation
 1. Clone the repository
