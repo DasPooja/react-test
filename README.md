@@ -27,7 +27,7 @@ A Logout Button is available in the sidebar to log out and clear the token from 
 1. Clone the repository
 git clone https://github.com/DasPooja/react-test.git
 
-2. Navigate to the project directory
+2. Navigate to the project directory:
 cd react-test
 
 3. Install the dependencies:
