@@ -3,15 +3,14 @@ import { Card, Tabs, Row, Col, Radio } from "antd";
 import axios from "axios";
 import "./AppLayout.css"; // Add some basic styles here
 
+ const { TabPane } = Tabs;
+
 const BASE_URL = 'https://risapi.mrbiller.com.au/api';
 const API_KEY='Vm94ZWwgcmFkaW9sb2d5';
 
 const AppLayout = () => {
-    const [theme, setTheme] = useState('☀');
     const [data, setData] = useState([]);
-    const [dropDrownVisible, setDropdownVisible] = useState(false);
-    const { TabPane } = Tabs;
-
+    
     const extractDataFromToken = (token) => {
         if (!token) return null;
       
@@ -29,7 +28,7 @@ const AppLayout = () => {
 
     const token = localStorage.getItem("authToken");
     const extractedData = extractDataFromToken(token);
-    console.log("Extracted Data:", extractedData);
+    // console.log("Extracted Data:", extractedData);
 
     useEffect(() => {
         const fetchUserSettings = async () => {
@@ -54,56 +53,16 @@ const AppLayout = () => {
 
 //    console.log(data)
 
-const toggleDropdown = () => {
-    setDropdownVisible((prev) => !prev);
-  };
 
-    const toggleTheme = () => {
-        setTheme(theme === "☀" ? "🌙" : "☀");
-      };
 
-    const handleLogout = () => {
-        localStorage.removeItem("authToken");
-        window.location.href = "/login";
-    };
+  
 
     function callback(key) {
     console.log(key);
     }
 
   return (
-    <div className={`app-container ${theme}`}>
-      {/* Sidebar */}
-      <div className="sidebar">
-        <h2 className="sidebar-title">My App</h2>
-        <nav className="menu">
-          <a href="#home">Home</a>
-          <a href="#settings">Settings</a>
-        </nav>
-        <button className="flex items-center space-x-2 text-white focus:outline-none" onClick={toggleDropdown}>
-              User{data.aud}
-        </button>
-        {dropDrownVisible && (<button onClick={handleLogout} className="logout-btn">
-                Logout
-        </button>)}
-        
-      </div>
 
-     {/* Header */}
-      <div className="main-layout">
-        <header className="header">
-          <h2>Welcome</h2>
-          <div style={{marginRight: '15px'}}>
-            <div className="theme-toggle">
-            <button onClick={toggleTheme} className="theme-btn">
-             {theme === "☀" ? "🌙" : "☀"}
-            </button>
-          </div>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main className="content">
             <Card title="Settings" style={{borderRadius: '20px'}}>
                 <Tabs defaultActiveKey="1" onChange={callback}>
                     <TabPane tab="Storage" key="1">
@@ -149,9 +108,8 @@ const toggleDropdown = () => {
                     </TabPane>
                 </Tabs>
             </Card>
-        </main>
-      </div>
-    </div>
+       
+     
   );
 };
 
